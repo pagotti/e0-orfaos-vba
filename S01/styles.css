@@ -1,0 +1,18 @@
+body
+{
+	padding: 0px;
+	margin: 0px;
+	background-color: gray;
+	font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
+}
+
+.content
+{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 240px;
+    height: 90px;
+	background-color: lightyellow;
+	text-align: center;
+}
