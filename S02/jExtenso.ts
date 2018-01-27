@@ -8,9 +8,9 @@ function jExtenso(valor: any) : string
 {
     let matrizesCarregadas:boolean = false;
 
-    let p1:string[];
-    let p2:string[];
-    let p3:string[];
+    let p1:string[] = [];
+    let p2:string[] = [];
+    let p3:string[] = [];
 
     const moedaSingular:string = "Real";
     const moedaPlural:string = "Reais";
