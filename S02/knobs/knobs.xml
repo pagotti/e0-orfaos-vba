@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp"
+>
+
+<!--IMPORTANTE: O ID especificado no TAG abaixo deve ser único para cada add-in que você criar.
+                Ele deve ser fornecido no padrão GUID (Globally Unique Identifier). A Microsoft
+                distribui um aplicativo (para Windows) chamado Microsoft Guid Generator Universal.
+                Você pode baixá-lo gratuitamente e utilizá-lo para gerar os IDs dos seus add-ins.
+                Há também vários sites que oferecem esse serviço gratuitamente. Para encontrá-los
+                procure no Google por: Online GUID Generator.
+-->
+
+  <Id>364de31c-e1ca-4e79-9cda-3dbfbf9b61a5</Id>
+      
+  <Version>1.0.0.0</Version>
+  <ProviderName>Expoente Zero</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+
+   <!--Nome e Identificação do add-in-->
+
+  <DisplayName DefaultValue="Knobs" />
+  <Description DefaultValue="Incremente ou decremente valores em células específicas utilizando dimmers!" />
+
+   <!--Ícone do add-in. Aparecerá nas telas de instalação e janelas de diálogo da Office Store.-->
+
+  <IconUrl DefaultValue="https://localhost/knobs/icon/Add_32.png" />
+
+  <!--Define o Host padrão do add-in. No Excel Online utilizamos Workbook.-->
+  
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+  
+  <!--Define a URL onde o add-in será hospedado.
+      Apontaremos para o nosso ambiente local. Quando o add-in estiver
+      pronto, será necessário hospedá-lo em um provedor web. O ambiente
+      local só serve para desenvolvimento e testes. O site onde o add-in
+      estiver hospedado precisa ter um certificado SSL válido.
+  -->
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost/knobs/index.html" />
+  </DefaultSettings>
+
+  <!--Define as permissões que o add-in precisa para trabalhar.
+      ReadWriteDocument indica que desejamos poder "ler" e "escrever" nas células da planilha.
+      As outras opções válidas são: ReadDocument (somente leitura) e WriteDocument (somente escrita).
+  -->
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!--Início da definição da aba do add-in no Ribbon do Excel.-->
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+   
+    <Hosts>
+      
+      <Host xsi:type="Workbook">
+
+        <!--Form factor deve ser DesktopFormFactor no caso de um add-in para Desktop.
+            Outras opções: TabletFormFactor e PhoneFormFactor (inda não disponíveis).
+        -->
+
+        <DesktopFormFactor>
+            
+          <!--PrimaryCommandSurface corresponde ao Ribbon do Office-->
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+
+            <!--Use OfficeTab para adicionar itens a uma aba já existente.
+                Use CustomTab para criar uma aba específica para o add-in.
+            -->
+
+            <CustomTab id="EZ.Tab">
+
+              <!--Define o label da nossa aba. Perceba que o atributo "resid" está
+                  apontando para um identificador. Esse identificador será definido
+                  lá embaixo no grupo <Resources>. O valor que será exibido no rodapé
+                  da nossa aba (string de texto) será especificado lá.
+                  Estamos apontando para um ShortString na seção <Resources>.
+              -->
+
+              <Label resid="EZ.Tab.TabLabel" /> 
+
+              <!--Identificação do grupo de ícones na nova aba.-->
+
+              <Group id="EZ.Tab.Group">
+                
+                <!--Rótulo do grupo. Aponta para um ShortString na seção Resources.-->
+                
+                <Label resid="EZ.Tab.GroupLabel" />
+
+                <!-- O ícone definido abaixo representará o add-in no catálogo (ou na Office Store).
+                     Se ele não estiver definido o Excel não vai validar este arquivo XML e não vai ser possível
+                     carregar o add-in para testes. A documentação recomenda que todos os tamanhos de ícone sejam
+                     fornecidos para que não haja distorções entre os vários dispositivos (plataformas) em que
+                     o add-in pode ser usado.
+                -->
+
+                <Icon>
+                  <bt:Image size="16" resid="EZ.Add.Icon_16" />
+                  <bt:Image size="20" resid="EZ.Add.Icon_20" />
+                  <bt:Image size="24" resid="EZ.Add.Icon_24" />
+                  <bt:Image size="32" resid="EZ.Add.Icon_32" />
+                  <bt:Image size="40" resid="EZ.Add.Icon_40" />
+                  <bt:Image size="48" resid="EZ.Add.Icon_48" />
+                  <bt:Image size="64" resid="EZ.Add.Icon_64" />
+                  <bt:Image size="80" resid="EZ.Add.Icon_80" />
+                </Icon>
+                
+                <!--Control pode ser do tipo "Button" ou "Menu"-->
+
+                <Control xsi:type="Button" id="EZ.Open">
+                  
+                  <!--Rótulo do Botão. Aponta para um ShortString na seção Resources.-->
+
+                  <Label resid="EZ.Open.Label" />
+
+                  <Supertip>
+                     <!--Título do ToolTip (dica, descrição). Aponta para um ShortString na seção Resources.-->
+                    <Title resid="EZ.Open.Label" />
+                     <!--Descrição do ToolTip. Aponta para um LongString na seção Resources.-->
+                    <Description resid="EZ.Open.Tooltip" />
+                  </Supertip>
+                  
+                  <!--Este é o ícone do botão que será exibido no Ribbon do Excel. -->
+
+                  <Icon>
+                    <bt:Image size="16" resid="EZ.Open.Icon_16" />
+                    <bt:Image size="20" resid="EZ.Open.Icon_20" />
+                    <bt:Image size="24" resid="EZ.Open.Icon_24" />
+                    <bt:Image size="32" resid="EZ.Open.Icon_32" />
+                    <bt:Image size="40" resid="EZ.Open.Icon_40" />
+                    <bt:Image size="48" resid="EZ.Open.Icon_48" />
+                    <bt:Image size="64" resid="EZ.Open.Icon_64" />
+                    <bt:Image size="80" resid="EZ.Open.Icon_80" />
+                  </Icon>
+
+                  <!--Define o que vai acontecer quando o ícone for clicado. 
+                      Ações possíveis: ExecuteFuncion ou ShowTaskpane.
+                  -->
+
+                  <Action xsi:type="ShowTaskpane">
+                     <TaskpaneId>btnOpenPane</TaskpaneId>
+                     <SourceLocation resid="EZ.Panel.Url" />
+                  </Action>
+
+                </Control>
+
+              </Group>
+
+            </CustomTab>
+
+          </ExtensionPoint>
+
+        </DesktopFormFactor>
+
+      </Host>
+
+    </Hosts>
+
+    <!-- O grupo Resources (abaixo) contém os valores para os "recursos"
+         (strings de texto e ícones) dos identificadores que utilizamos
+         nas tags da seção <Hosts>.
+    -->
+
+    <Resources>
+
+      <bt:Images>
+        
+        <bt:Image id="EZ.Open.Icon_16" DefaultValue="https://localhost/knobs/icon/Run_16.png" />
+        <bt:Image id="EZ.Open.Icon_20" DefaultValue="https://localhost/knobs/icon/Run_20.png" />
+        <bt:Image id="EZ.Open.Icon_24" DefaultValue="https://localhost/knobs/icon/Run_24.png" />
+        <bt:Image id="EZ.Open.Icon_32" DefaultValue="https://localhost/knobs/icon/Run_32.png" />
+        <bt:Image id="EZ.Open.Icon_40" DefaultValue="https://localhost/knobs/icon/Run_40.png" />
+        <bt:Image id="EZ.Open.Icon_48" DefaultValue="https://localhost/knobs/icon/Run_48.png" />
+        <bt:Image id="EZ.Open.Icon_64" DefaultValue="https://localhost/knobs/icon/Run_64.png" />
+        <bt:Image id="EZ.Open.Icon_80" DefaultValue="https://localhost/knobs/icon/Run_80.png" />
+
+        <bt:Image id="EZ.Add.Icon_16" DefaultValue="https://localhost/knobs/icon/Add_16.png" />
+        <bt:Image id="EZ.Add.Icon_20" DefaultValue="https://localhost/knobs/icon/Add_20.png" />
+        <bt:Image id="EZ.Add.Icon_24" DefaultValue="https://localhost/knobs/icon/Add_24.png" />
+        <bt:Image id="EZ.Add.Icon_32" DefaultValue="https://localhost/knobs/icon/Add_32.png" />
+        <bt:Image id="EZ.Add.Icon_40" DefaultValue="https://localhost/knobs/icon/Add_40.png" />
+        <bt:Image id="EZ.Add.Icon_48" DefaultValue="https://localhost/knobs/icon/Add_48.png" />
+        <bt:Image id="EZ.Add.Icon_64" DefaultValue="https://localhost/knobs/icon/Add_64.png" />
+        <bt:Image id="EZ.Add.Icon_80" DefaultValue="https://localhost/knobs/icon/Add_80.png" />
+
+      </bt:Images>
+
+      <bt:Urls>
+        <bt:Url id="EZ.Panel.Url" DefaultValue="https://localhost/knobs/index.html" />
+      </bt:Urls>
+
+      <bt:ShortStrings>
+        <bt:String id="EZ.Open.Label" DefaultValue="Knobs" />
+        <bt:String id="EZ.Tab.GroupLabel" DefaultValue="Knobs" />
+        <bt:String id="EZ.Tab.TabLabel" DefaultValue="Knobs" />
+      </bt:ShortStrings>
+      
+      <bt:LongStrings>
+        <bt:String id="EZ.Open.Tooltip" DefaultValue="Clique para abrir o Painel." />
+      </bt:LongStrings>
+
+    </Resources>
+  
+  </VersionOverrides>
+
+</OfficeApp>

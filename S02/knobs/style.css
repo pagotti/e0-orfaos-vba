@@ -1,0 +1,154 @@
+html
+{
+    font-size: 100%;
+    margin: 0;
+    padding: 0.25em;
+} 
+    
+body
+{
+    font-size: 1em;
+}
+
+.bar
+{
+    background-color: #CFCFCF;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+
+.knob_panel
+{
+    font-size: .8em;
+    width: 100%;
+    height: 14em;
+    background-color: #F0F0F0;
+    border-radius: 2em;
+    margin-top: 1em;
+}
+
+.v_knob, .s_knob
+{
+    position: relative;
+    width: 8em;
+    height: 12em;
+    background-color: #CFCFCF;
+    float: left;
+    margin: 1em;
+    margin-right: 0;
+    text-align: center;
+    border-radius: 1em;
+}
+
+.knob_border
+{
+    position: relative;
+    width: 4em;
+    height: 4em;
+    margin: 0 auto;
+    margin-top: 1.4em;
+    background: #808080;
+    background: linear-gradient(-45deg,#808080,#F0F0F0);
+    border-radius: 50%;
+}
+
+.knob_middle
+{
+    position: relative;
+    width: 3.5em;
+    height: 3.5em;
+    top: 0.25em;
+    left: 0.25em;
+    background: #808080;
+    background: linear-gradient(-45deg, #F0F0F0, #808080);
+    border-radius: 50%;
+}
+
+.led
+{
+    position: relative;
+    width: 0.4em;
+    height: 0.4em;
+    margin: 0 auto;
+    top: 0.25em;
+    background: radial-gradient(white,greenyellow);
+    border-width: 0.1em;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 50%;
+    transform-origin: 50% 1.5em;
+}
+
+.tick
+{
+    position: absolute;
+    width: 0.05em;
+    height: 0.25em;
+    top: 0.8em;
+    left: 4em;
+    background: gray;
+    transform-origin: 50% 2.6em;
+}
+
+.tick:nth-child(1){transform:rotate(-120deg)}
+.tick:nth-child(2){transform:rotate(-100deg)}
+.tick:nth-child(3){transform:rotate(-80deg)}
+.tick:nth-child(4){transform:rotate(-60deg)}
+.tick:nth-child(5){transform:rotate(-40deg)}
+.tick:nth-child(6){transform:rotate(-20deg)}
+.tick:nth-child(7){transform:rotate(0deg)}
+.tick:nth-child(8){transform:rotate(20deg)}
+.tick:nth-child(9){transform:rotate(40deg)}
+.tick:nth-child(10){transform:rotate(60deg)}
+.tick:nth-child(11){transform:rotate(80deg)}
+.tick:nth-child(12){transform:rotate(100deg)}
+.tick:nth-child(13){transform:rotate(120deg)}
+.tick:nth-child(14){transform:rotate(140deg)}
+.tick:nth-child(15){transform:rotate(160deg)}
+.tick:nth-child(16){transform:rotate(180deg)}
+.tick:nth-child(17){transform:rotate(200deg)}
+.tick:nth-child(18){transform:rotate(220deg)}
+
+.knob_text
+{
+   margin-top: 0.8em;
+   font-family: 'Fjalla One', sans-serif;
+   color: white;
+   text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.cell_address
+{
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    background: #FFFFFF;
+    width: 80%;
+    border-radius: 0.25em;
+}
+
+.cell_value
+{
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    background: #FFFFFF;
+    width: 80%;
+    border-radius: 0.25em;
+    overflow: hidden;
+}
+
+.scale
+{
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    background: #FFFFFF;
+    width: 80%;
+    border-radius: 0.25em;
+}
+
+.delete
+{
+    margin-top: 0.25em;
+}
